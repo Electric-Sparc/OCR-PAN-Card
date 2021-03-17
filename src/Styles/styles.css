@@ -1,0 +1,38 @@
+.cropper {
+  position: relative;
+  height: 400px;
+  width: 99vw;
+}
+
+.root {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.img {
+  height: inherit;
+  max-width: inherit;
+}
+
+input {
+  display: none;
+}
+
+.paper {
+  height: 140px;
+  width: 100px;
+}
+
+.backButton {
+  margin-right: 10px;
+}
+
+.cropButton {
+  margin: 2% !important;
+}
+
+.croppedImage {
+  margin: 0 auto !important;
+}
