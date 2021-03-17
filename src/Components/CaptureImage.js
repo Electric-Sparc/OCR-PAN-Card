@@ -37,7 +37,7 @@ const CaptureImage = () => {
           </IconButton>
         </label>
         <div>
-          <img src={source}></img>
+          <img src={source} alt="Captured Image"></img>
         </div>
       </Grid>
     </Grid>
