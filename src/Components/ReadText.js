@@ -31,7 +31,7 @@ function ReadText() {
         <Grid container>
           <Grid item className="croppedImage">
             <div>
-              <img src={imageURL} alt="Cropped Image"></img>
+              <img src={imageURL} alt="Cropped"></img>
             </div>
             <FormLabel>OCR Text</FormLabel>
 
