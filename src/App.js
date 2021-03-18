@@ -9,12 +9,13 @@ import "./Styles/styles.css";
 import CaptureImage from "./Components/CaptureImage";
 import ReadText from "./Components/ReadText";
 import SelectRegion from "./Components/SelectRegion";
+import { useDataLayerValue } from "./StateManagement/DataLayer";
 
-function getSteps() {
+export function getSteps() {
   return ["Capture image", "Crop the image", "Recognize text"];
 }
 
-function getStepContent(stepIndex) {
+export function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
       return <CaptureImage />;
@@ -29,6 +30,8 @@ function getStepContent(stepIndex) {
 
 function App() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [{ source }, dispatch] = useDataLayerValue();
+
   const steps = getSteps();
 
   const handleNext = () => {
@@ -41,6 +44,9 @@ function App() {
 
   const handleReset = () => {
     setActiveStep(0);
+    dispatch({ type: "SETTEXT", payload: "" });
+    dispatch({ type: "SETSOURCE", payload: "" });
+    dispatch({ type: "SETBLOB", payload: null });
   };
 
   return (
@@ -70,7 +76,11 @@ function App() {
                 className="backButton">
                 Back
               </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+                disabled={source === ""}>
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
             </div>

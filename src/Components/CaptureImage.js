@@ -36,9 +36,7 @@ const CaptureImage = () => {
             <PhotoCameraRoundedIcon fontSize="large" color="primary" />
           </IconButton>
         </label>
-        <div>
-          <img src={source} alt="Captured"></img>
-        </div>
+        <div>{source && <img src={source} alt="Captured"></img>}</div>
       </Grid>
     </Grid>
   );

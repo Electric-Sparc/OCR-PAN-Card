@@ -8,6 +8,7 @@ import { useDataLayerValue } from "../StateManagement/DataLayer";
 
 function ReadText() {
   const [{ blob, text }, dispatch] = useDataLayerValue();
+  let Progress = {};
 
   const worker = createWorker({
     logger: (m) => console.log(m),
@@ -34,7 +35,10 @@ function ReadText() {
               <img src={imageURL} alt="Cropped"></img>
             </div>
             <FormLabel>OCR Text</FormLabel>
-
+            <FormLabel>
+              {Progress.status}
+              {Progress.progress}
+            </FormLabel>
             <Button
               className="cropButton"
               variant="contained"
